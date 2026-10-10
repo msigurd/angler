@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Angler</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Another angle-guessing game.">
+    <script type="module" src="script.js" defer></script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to play Angler.</noscript>
+    <main>
+      <p>What's the angle?</p>
+      <div class="canvas-container">
+        <canvas id="canvas" width="200" height="200"></canvas>
+      </div>
+      <label>
+        Guess between 5° and 355°
+        <span id="total-guesses">
+          <span id="guesses">0</span>/5
+        </span>
+        <fieldset id="guess-fieldset" class="group">
+          <input id="guess-input" type="number" min="5" max="355" placeholder="Your guess" />
+          <button id="submit-btn" class="outline" type="button">Submit</button>
+        </fieldset>
+      </label>
+      <p hidden id="response-already-guessed" class="response">Already guessed!</p>
+      <p hidden id="response-correct" class="response">✅ Correct!</p>
+      <p hidden id="response-incorrect" class="response">
+        ❌ The angle is
+        <span id="response-incorrect__correct-angle">123</span>°
+      </p>
+      <p hidden id="response-too-high" class="response">⬇️ Too high</p>
+      <p hidden id="response-too-low" class="response">⬆️ Too low</p>
+      <form hidden id="play-again" action="/angler">
+        <input type="submit" value="Play again" />
+      </form>
+    </main>
+    <footer>
+      <a href="https://github.com/msigurd/angler" target="_blank" rel="noopener noreferrer">
+        Source code
+      </a>
+    </footer>
+  </body>
+</html>
