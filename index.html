@@ -29,13 +29,31 @@
         </fieldset>
       </label>
       <p hidden id="response-already-guessed" class="response">Already guessed!</p>
-      <p hidden id="response-correct" class="response">✅ Correct!</p>
+      <p hidden id="response-correct" class="response">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 6 9 17l-5-5" />
+        </svg>
+        Correct!
+      </p>
       <p hidden id="response-incorrect" class="response">
-        ❌ The angle is
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+        The angle is
         <span id="response-incorrect__correct-angle">123</span>°
       </p>
-      <p hidden id="response-too-high" class="response">⬇️ Too high</p>
-      <p hidden id="response-too-low" class="response">⬆️ Too low</p>
+      <p hidden id="response-too-high" class="response">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 5v14m7-7-7 7-7-7" />
+        </svg>
+        Too high
+      </p>
+      <p hidden id="response-too-low" class="response">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 19V5m-7 7 7-7 7 7" />
+        </svg>
+        Too low
+      </p>
       <form hidden id="play-again" action="/angler">
         <input type="submit" value="Play again" />
       </form>
