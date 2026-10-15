@@ -1,19 +1,23 @@
-export function drawAngleOnCanvas(canvas, degrees, radius, lineLength) {
-  const ctx = canvas.getContext('2d');
-  const [cx, cy] = [canvas.width / 2, canvas.height / 2];
+export function drawAngleOnSvg(svg, degrees, radius, lineLength) {
+  const [cx, cy] = [svg.viewBox.baseVal.width / 2, svg.viewBox.baseVal.height / 2];
   const startAngle = -degrees * Math.PI / 180;
+  const [dx, dy] = [Math.cos(startAngle), Math.sin(startAngle)];
+  const largeArc = degrees > 180 ? 1 : 0;
 
   // draw arc
-  ctx.beginPath();
-  ctx.arc(cx, cy, radius, startAngle, 0);
-  ctx.strokeStyle = 'red';
-  ctx.stroke();
+  const arc = createPath('angle-arc',
+    `M ${cx + radius} ${cy} A ${radius} ${radius} 0 ${largeArc} 0 ${cx + radius * dx} ${cy + radius * dy}`);
 
   // draw lines
-  ctx.beginPath();
-  ctx.moveTo(cx + lineLength, cy);
-  ctx.lineTo(cx, cy);
-  ctx.lineTo(cx + lineLength * Math.cos(startAngle), cy + lineLength * Math.sin(startAngle));
-  ctx.strokeStyle = 'black';
-  ctx.stroke();
+  const lines = createPath('angle-lines',
+    `M ${cx + lineLength} ${cy} L ${cx} ${cy} L ${cx + lineLength * dx} ${cy + lineLength * dy}`);
+
+  svg.replaceChildren(arc, lines);
+}
+
+function createPath(id, d) {
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  path.id = id;
+  path.setAttribute('d', d);
+  return path;
 }

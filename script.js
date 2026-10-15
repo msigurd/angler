@@ -1,11 +1,11 @@
 import { randomInt } from './javascript/helpers.js';
-import { drawAngleOnCanvas } from './javascript/painter.js';
+import { drawAngleOnSvg } from './javascript/painter.js';
 
 const [RADIUS, LINE_LENGTH] = [50, 85];
 const [MIN_GUESS, MAX_GUESS] = [5, 355];
 const MAX_GUESSES = 5;
 const MAIN_EL = document.querySelector('main');
-const CANVAS = document.getElementById('canvas');
+const ANGLE_SVG = document.getElementById('angle');
 const GUESS_FIELDSET = document.getElementById('guess-fieldset');
 const GUESS_INPUT = document.getElementById('guess-input');
 const SUBMIT_BTN = document.getElementById('submit-btn');
@@ -25,7 +25,7 @@ function initialize() {
 }
 
 function drawAngle(angle) {
-  drawAngleOnCanvas(CANVAS, angle, RADIUS, LINE_LENGTH);
+  drawAngleOnSvg(ANGLE_SVG, angle, RADIUS, LINE_LENGTH);
 }
 
 function randomAngle() {

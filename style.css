@@ -105,7 +105,7 @@ main {
   }
 }
 
-.canvas-container {
+.angle-container {
   margin: 0;
   padding: 1rem;
   display: flex;
@@ -118,6 +118,10 @@ main {
   margin: .5rem 0 0;
   font-size: 14px;
 }
+
+#angle path { fill: none }
+#angle-arc { stroke: red }
+#angle-lines { stroke: black }
 
 #total-guesses {
   font-size: 12px;
