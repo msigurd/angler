@@ -74,7 +74,7 @@ function clearState() {
 }
 
 function isValidGuess(guess) {
-  return guess >= MIN_GUESS && guess <= MAX_GUESS;
+  return guess >= MIN_GUESS && guess <= MAX_GUESS && Number.isInteger(guess);
 }
 
 function isAlreadyGuessed(guess) {
