@@ -1,3 +1,37 @@
+:root {
+  color-scheme: light dark;
+  --background: white;
+  --foreground: black;
+  --muted: #71717a;
+  --border: #d4d4d8;
+  --hover: #f4f4f5;
+  --primary: #574747;
+  --primary-foreground: #fafafa;
+  --neutral: gray;
+  --success: green;
+  --danger: red;
+  --hint: #3a6ea5;
+  --angle-arc: red;
+  --angle-lines: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111113;
+    --foreground: #f4f4f5;
+    --muted: #a1a1aa;
+    --border: #3f3f46;
+    --hover: #27272a;
+    --primary: #6b5858;
+    --neutral: #a1a1aa;
+    --success: #4ade80;
+    --danger: #f87171;
+    --hint: #8ab4e0;
+    --angle-arc: #f87171;
+    --angle-lines: #f4f4f5;
+  }
+}
+
 html, body { height: 100% }
 
 html {
@@ -9,6 +43,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--foreground);
+  background-color: var(--background);
 }
 
 main {
@@ -22,7 +58,7 @@ footer {
   margin-top: auto;
   padding: 1rem;
   font-size: 12px;
-  a { color: black }
+  a { color: var(--foreground) }
 }
 
 label {
@@ -37,23 +73,25 @@ input {
   padding: .5rem .75rem;
   font-size: .875rem;
   line-height: 1.5;
-  border: 1px solid #d4d4d8;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  background-color: var(--background);
 }
 
 button, [type="submit"] {
   width: min-content;
   padding: .5rem 1rem;
-  border: 1px solid #d4d4d8;
+  border: 1px solid var(--border);
   line-height: 1.5;
-  color: #fafafa;
-  background-color: #574747;
+  color: var(--primary-foreground);
+  background-color: var(--primary);
   &:not(:disabled) { cursor: pointer }
-  &:hover:not(:disabled) { background-color: color-mix(in srgb, #574747, white 25%) }
+  &:hover:not(:disabled) { background-color: color-mix(in srgb, var(--primary), white 25%) }
   &:active:not(:disabled) { transform: translate(1px,1px) }
   &.outline {
-    color: black;
+    color: var(--foreground);
     background-color: transparent;
-    &:hover:not(:disabled) { background-color: #f4f4f5 }
+    &:hover:not(:disabled) { background-color: var(--hover) }
   }
 }
 
@@ -77,15 +115,15 @@ main {
   }
   &.correct {
     #guess-fieldset {
-      > input { border-color: green }
-      > button { border-color: green }
+      > input { border-color: var(--success) }
+      > button { border-color: var(--success) }
     }
     #response-correct { display: block }
   }
   &.incorrect, &.too-high, &.too-low {
     #guess-fieldset {
-      > input { border-color: red }
-      > button { border-color: red }
+      > input { border-color: var(--danger) }
+      > button { border-color: var(--danger) }
     }
   }
   &.incorrect {
@@ -100,7 +138,7 @@ main {
   &.correct, &.incorrect, &.too-high, &.too-low {
     #guess-fieldset {
       > input { border-inline-end-color: transparent }
-      > button { border-inline-start-color: #d4d4d8 }
+      > button { border-inline-start-color: var(--border) }
     }
   }
 }
@@ -110,7 +148,7 @@ main {
   padding: 1rem;
   display: flex;
   justify-content: center;
-  border: 1px solid #d4d4d8;
+  border: 1px solid var(--border);
   border-radius: .375rem;
 }
 
@@ -120,19 +158,19 @@ main {
 }
 
 #angle path { fill: none }
-#angle-arc { stroke: red }
-#angle-lines { stroke: black }
+#angle-arc { stroke: var(--angle-arc) }
+#angle-lines { stroke: var(--angle-lines) }
 
 #total-guesses {
   font-size: 12px;
   float: right;
-  color: #71717a;
+  color: var(--muted);
 }
 
-#response-already-guessed { color: gray }
-#response-correct { color: green }
-#response-incorrect { color: red }
-#response-too-high, #response-too-low { color: #3a6ea5 }
+#response-already-guessed { color: var(--neutral) }
+#response-correct { color: var(--success) }
+#response-incorrect { color: var(--danger) }
+#response-too-high, #response-too-low { color: var(--hint) }
 
 #play-again:not([hidden]) {
   display: flex;
