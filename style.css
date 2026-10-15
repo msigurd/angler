@@ -122,13 +122,13 @@ main {
 #total-guesses {
   font-size: 12px;
   float: right;
-  color: darkgray;
+  color: #71717a;
 }
 
 #response-already-guessed { color: gray }
 #response-correct { color: green }
 #response-incorrect { color: red }
-#response-too-high, #response-too-low { color: steelblue }
+#response-too-high, #response-too-low { color: #3a6ea5 }
 
 #play-again:not([hidden]) {
   display: flex;
